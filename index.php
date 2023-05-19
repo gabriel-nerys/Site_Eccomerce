@@ -12,40 +12,25 @@
 </head>
 <body>
     
-    <?php include 'nav.php' ?>
-    <?php include 'cabecalho.html' ?>
+    <?php 
+        include 'nav.php' ;
+        include 'cabecalho.html';
+        include 'conexao.php' ;
+
+        // Variavel consulta vai receber variavel $cn que receberá o resultado de uma query
+        $consulta = $cn->query('select*from vw_tenis');
+    ?>
+
 
     <div class="container-fluid">
         <div class="row">
+            <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
             <div class="col-sm-3">
-                <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%;" alt="">
-                <div><h2>Nome do produto</h2></div>
-                <div><h4>R$500,00</h4></div>
-            </div>
-
-            <div class="col-sm-3">
-                <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%;" alt="">
-                <div><h2>Nome do produto</h2></div>
-                <div><h4>R$500,00</h4></div>
-            </div>
-
-            <div class="col-sm-3">
-                <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%;" alt="">
-                <div><h2>Nome do produto</h2></div>
-                <div><h4>R$500,00</h4></div>
-            </div>
-
-            <div class="col-sm-3">
-                <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%;" alt="">
-                <div><h2>Nome do produto</h2></div>
-                <div><h4>R$500,00</h4></div>
-            </div>
-
-            <div class="col-sm-3">
-                <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%;" alt="">
-                <div><h2>Nome do produto</h2></div>
-                <div><h4>R$500,00</h4></div>
-            </div>
+                <img src="img/<?php echo $exibe['ds_tenis_img'] ?>.jpeg" class="img-responsive" style="width: 100%;" alt="">
+                <div><h4><?php echo mb_strimwidth($exibe['nm_tenis'],0,30,'...') ?></h4></div>
+                <div><h5>R$ <?php echo number_format($exibe['vl_preco'],2,',','.') ?></h5></div>
+            </div>   
+            <?php } ?>         
         </div>
     </div>
 
