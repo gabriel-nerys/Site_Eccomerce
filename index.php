@@ -40,6 +40,12 @@
                 <div><h2>Nome do produto</h2></div>
                 <div><h4>R$500,00</h4></div>
             </div>
+
+            <div class="col-sm-3">
+                <img src="https://placehold.it/450x320" class="img-responsive" style="width: 100%;" alt="">
+                <div><h2>Nome do produto</h2></div>
+                <div><h4>R$500,00</h4></div>
+            </div>
         </div>
     </div>
 
