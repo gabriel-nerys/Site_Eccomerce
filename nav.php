@@ -10,20 +10,20 @@
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="nav nav-tabs" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
               </li>              
               <li class="nav-item">
-                <a class="nav-link">Lançamentos</a>
+                <a href="lanc.php" class="nav-link">Lançamentos</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categorias
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Nike</a></li>
-                  <li><a class="dropdown-item" href="#">Adidas</a></li>
+                  <li><a class="dropdown-item" href="categorias.php?cat=Nike">Nike</a></li>
+                  <li><a class="dropdown-item" href="categorias.php?cat=Adidas">Adidas</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Mizuno</a></li>
+                  <li><a class="dropdown-item" href="categorias.php?cat=Mizuno">Mizuno</a></li>
                 </ul>
               </li>              
             </ul>
