@@ -9,9 +9,13 @@ body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.btn{
+    border-radius: 15px;
+}
+
 .container{
     display: flex;
-    border: 2px solid red;
+    
     justify-content: center;
     align-items: center;
     height: 100vh;
