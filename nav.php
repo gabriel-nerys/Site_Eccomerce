@@ -40,15 +40,11 @@
                 </li>
 
                 <?php if(empty($_SESSION['ID'])) { ?>
-                <li class="nav-item">
-                <a class="nav-link active" href="login.php">Login</a>
-                </li>
-
+                <li class="nav-item"><a class="nav-link active" href="login.php">Login</a></li>
                 <?php } else {
-                $consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]' ");
+                $consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]'");
                 $exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);
                 ?>
-
                 <li class="nav-item"><a class="nav-link active" href="#"><?php echo $exibe_usuario['nm_usuario']; ?></a></li>
                 <li class="nav-item"><a class="nav-link active" href="sair.php">Sair</a></li>
                 <?php } ?>
