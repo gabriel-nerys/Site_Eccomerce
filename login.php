@@ -34,14 +34,14 @@
     <div class="container mt-4">
         <div class="row align-items-center">
             <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-light" id="formlogin">
+                <form class="p-4 p-md-5 border rounded-3 bg-light" id="formlogin" method="post" action="validausuario.php">
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" aria-describedby="emailHelp">
+                        <label for="txtemail" class="form-label">Email</label>
+                        <input name="txtemail" type="email" class="form-control" id="txtemail" placeholder="Digite seu e-mail">
                         </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Senha</label>
-                        <input type="password" class="form-control" placeholder="Digite sua senha" id="password">
+                        <label  for="txtsenha" class="form-label">Senha</label>
+                        <input name="txtsenha" type="password" class="form-control" placeholder="Digite sua senha" id="txtsenha">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">

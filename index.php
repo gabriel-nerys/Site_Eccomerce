@@ -13,10 +13,13 @@
 <body>
     
     <?php 
+
+        session_start();
+
+        include 'conexao.php' ;
         include 'nav.php' ;
         include 'cabecalho.html';
-        include 'conexao.php' ;
-
+        
         // Variavel consulta vai receber variavel $cn que receberá o resultado de uma query
         $consulta = $cn->query('select nm_tenis,vl_preco,ds_tenis_img,qt_estoque from vw_tenis');
     ?>
@@ -27,7 +30,7 @@
             <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
             <div class="col-sm-3">
                 <img src="img/<?php echo $exibe['ds_tenis_img'] ?>.jpeg" class="img-responsive" style="width: 100%;" alt="">
-                <div><h4><?php echo mb_strimwidth($exibe['nm_tenis'],0,30,'...') ?></h4></div>
+                <div><h4><?php echo mb_strimwidth($exibe['nm_tenis'],0,25,'...') ?></h4></div>
                 <div><h5>R$ <?php echo number_format($exibe['vl_preco'],2,',','.') ?></h5></div>
 
                 <div class="text-center">
