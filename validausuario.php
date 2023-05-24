@@ -11,7 +11,7 @@
 
     if ($consulta->rowCount() == 1) { //rowCount verifica se usuario existe ou não
         $exibeUsuario = $consulta->fetch(PDO::FETCH_ASSOC);
-        $SESSION['ID'] = $exibeUsuario['cd_usuario'];
+        $_SESSION['ID'] = $exibeUsuario['cd_usuario'];
         header('location:index.php');
     }else{
         header('location:erro.php');
