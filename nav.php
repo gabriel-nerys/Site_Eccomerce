@@ -41,13 +41,21 @@
 
                 <?php if(empty($_SESSION['ID'])) { ?>
                 <li class="nav-item"><a class="nav-link active" href="login.php">Login</a></li>
-                <?php } else {
-                $consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]'");
-                $exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);
+                <?php } else { if($_SESSION['Status'] == 0) {
+                    $consulta_usuario = $cn->query("select nm_usuario from tbl_usuario where cd_usuario = '$_SESSION[ID]'");
+                    $exibe_usuario = $consulta_usuario->fetch(PDO::FETCH_ASSOC);                
                 ?>
-                <li class="nav-item"><a class="nav-link"  href="#"> <?php echo $exibe_usuario['nm_usuario']; ?></a></li>
-                <li class="nav-item"><a class="nav-link active" href="sair.php">Sair</a></li>
-                <?php } ?>
+                    <li class="nav-item"><a class="nav-link"  href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg> <?php echo $exibe_usuario['nm_usuario']; ?></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sair.php">Sair</a></li>
+                <?php } else { ?>
+                    <li class="nav-item"><a class="nav-link"  href="adm.php"><button class="btn btn-sm btn-danger">Administrador</button></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="sair.php">Sair</a></li>
+                
+                
+                <?php } } ?>
             
             </ul>
         </div>
