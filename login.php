@@ -48,8 +48,8 @@
                         <label class="form-check-label" for="exampleCheck1">Lembre de mim</label>
                     </div>
                     <div>
-                    <button type="submit" class="btn btn-success">Entrar</button>
-                    <button type="submit" class="btn btn-primary">cadastre-se</button>
+                    <button type="button" class="btn btn-success">Entrar</button>
+                    <a href="formusuario.php" ><button  type="button" class="btn btn-primary">cadastre-se</button></a>
                     </div>
                     
                 </form>
