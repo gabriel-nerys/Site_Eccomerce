@@ -14,7 +14,7 @@
 
         if($exibeUsuario['ds_status'] == 0){
             $_SESSION['ID'] = $exibeUsuario['cd_usuario'];
-            $$_SESSION['Status']=0;
+            $_SESSION['Status']=0;
             header('location:index.php');
         }else{
             $_SESSION['ID'] = $exibeUsuario['cd_usuario'];
