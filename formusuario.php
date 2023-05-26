@@ -12,7 +12,7 @@
 
     <script>
         $(document).ready(function(){
-            $('#cep"]').mask('00000-000');
+            $('#txtcep"]').mask('00000-000');
             $('#telefone').mask('(00) 0000-00009');
             $('#celular').mask('(00) 00000-0000');
             
@@ -45,10 +45,10 @@
     <div class="container mt-4">
         <div class="row align-items-center">
             <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-light" id="formlogin" method="post" action="validausuario.php">
+                <form class="p-4 p-md-5 border rounded-3 bg-light" id="formusuario" method="post" action="inserirusuario.php">
                     <div class="mb-3">
                         <label for="txtemail" class="form-label">Nome</label>
-                        <input name="nome" type="email" class="form-control" id="nome" required id="nome" placeholder="Digite seu nome">
+                        <input name="txtnome" type="text" class="form-control" id="nome" required id="txtnome" placeholder="Digite seu nome">
                     </div>
                     <div class="mb-3">
                         <label for="txtemail" class="form-label">Email</label>
@@ -60,19 +60,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="endereco">Endereço:</label>
-                        <textarea name="endereco" type="text" rows="3" class="form-control" id="endereco" required id="endereco" placeholder="Digite seu endereço"></textarea>
+                        <textarea name="txtendereco" type="text" rows="3" class="form-control" id="endereco" required id="txtendereco" placeholder="Digite seu endereço"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="cidade">Cidade:</label>
-                        <input name="cidade" type="text" class="form-control" id="cidade" required id="cidade" placeholder="Digite sua cidade">
+                        <input name="txtcidade" type="text" class="form-control" id="cidade" required id="cidade" placeholder="Digite sua cidade">
                     </div>
                     <div class="mb-3">
                         <label for="cep">CEP:</label>
-                        <input name="cep" autocomplete="off" maxlength="9" type="text" class="form-control" id="cep"  placeholder="Digite seu CEP" required id="cep">
+                        <input name="txtcep" autocomplete="off" maxlength="8" type="text" class="form-control" id="txtcep"  placeholder="Digite seu CEP" required id="txtcep">
                     </div>
                     
                     <div>
-                    <button type="button" class="btn btn-success">Cadastrar</button>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
                     <a href="login.php" ><button  type="button" class="btn btn-primary">Voltar</button></a>
                     </div>
                     

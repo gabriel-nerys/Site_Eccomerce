@@ -13,9 +13,9 @@
 <body>
 
 <?php 
-        include 'nav.php' ;
-        
         include 'conexao.php' ;
+        include 'nav.php' ;      
+        
 ?>
 
 <style>
@@ -34,7 +34,7 @@
     <div class="container mt-4">
         <div class="row align-items-center">
             <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-light" id="formlogin" method="post" action="validausuario.php">
+                <form class="p-4 p-md-5 border rounded-3 bg-light" name="formlogin" id="formlogin" method="post" action="validausuario.php">
                     <div class="mb-3">
                         <label for="txtemail" class="form-label">Email</label>
                         <input name="txtemail" type="email" class="form-control" id="txtemail" placeholder="Digite seu e-mail">
@@ -48,7 +48,7 @@
                         <label class="form-check-label" for="exampleCheck1">Lembre de mim</label>
                     </div>
                     <div>
-                    <button type="button" class="btn btn-success">Entrar</button>
+                    <button type="submit" class="btn btn-success">Entrar</button>
                     <a href="formusuario.php" ><button  type="button" class="btn btn-primary">cadastre-se</button></a>
                     </div>
                     
