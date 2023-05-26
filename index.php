@@ -21,7 +21,7 @@
         include 'cabecalho.html';
         
         // Variavel consulta vai receber variavel $cn que receberá o resultado de uma query
-        $consulta = $cn->query('select nm_tenis,vl_preco,ds_tenis_img,qt_estoque from vw_tenis');
+        $consulta = $cn->query('select cd_tenis,nm_tenis,vl_preco,ds_tenis_img,qt_estoque from vw_tenis');
     ?>
 
 
@@ -34,9 +34,11 @@
                 <div><h5>R$ <?php echo number_format($exibe['vl_preco'],2,',','.') ?></h5></div>
 
                 <div class="text-center">
-                    <button class="btn btn-block btn-default">
+                    <a href="detalhes.php?cd=<?php echo $exibe['cd_tenis'];?>">
+                    <button class="btn btn-outline-secondary" style="width: 100%;">
                         <span class="glyphicon glyphicon-info-sinal" > Detalhes</span> 
                     </button>
+                    </a>
                 </div>
 
                 <div class="text-center" style="margin-top: 5px; margin-bottom: 10px;">

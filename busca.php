@@ -17,45 +17,42 @@
         include 'cabecalho.html';
         include 'conexao.php' ;
 
+        if(empty($_GET['txtbuscar'])){
+            echo "<html><script>location.href='index.php'</script></html>";
+        }
+
+        $pesquisa = $_GET['txtbuscar'];
+
         // Variavel consulta vai receber variavel $cn que receberá o resultado de uma query
-        $consulta = $cn->query("select cd_tenis,nm_tenis,vl_preco,ds_tenis_img,qt_estoque from vw_tenis where sg_lancamento = 'S'");
+        $consulta = $cn->query("select * from vw_tenis where nm_tenis like concat ('%','$pesquisa','%') or nm_marca like concat ('%','$pesquisa','%')");
+        $exibe = $consulta->fetch(PDO::FETCH_ASSOC);
+        if($consulta->rowCount() == 0){
+            echo "<div class='alert alert-danger'>Nenhum resultado encontrado</div>";
+        }
     ?>
 
 
-    <div class="container-fluid">
-        <div class="row">
-            <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
-            <div class="col-sm-3">
-                <img src="img/<?php echo $exibe['ds_tenis_img'] ?>.jpeg" class="img-responsive" style="width: 100%;" alt="">
-                <div><h4><?php echo mb_strimwidth($exibe['nm_tenis'],0,30,'...') ?></h4></div>
-                <div><h5>R$ <?php echo number_format($exibe['vl_preco'],2,',','.') ?></h5></div>
+    <div class="container-fluid" style="height: 53vh;">
+    <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)) {?>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-sm-2 col-sm-offset-1" style="margin-left: 5vh;">             
 
-                <div class="text-center">
-                    <a href="detalhes.php?cd=<?php echo $exibe['cd_tenis'];?>">
+                <img src="img/<?php echo $exibe['ds_tenis_img'] ?>.jpeg" class="img-responsive" style="width: 100%;">
+            </div>  
+            <div class="col-sm-5" style="padding-top:20px;">
+            <b><?php echo $exibe['nm_tenis'] ?></b>
+            <?php echo $exibe['ds_resumo_tenis'] ?>
+            </div>
+            <div class="col-sm-2" style="padding-top:20px;"><b>Preço: <?php echo $exibe['vl_preco'] ?></b></div>
+            <div class="col-sm-2 col-xs-offset-right-1" style="padding-top:20px;">
+            <a href="detalhes.php?cd=<?php echo $exibe['cd_tenis'];?>">
                     <button class="btn btn-outline-secondary" style="width: 100%;">
                         <span class="glyphicon glyphicon-info-sinal" > Detalhes</span> 
                     </button>
                     </a>
-                </div>
-
-                <div class="text-center" style="margin-top: 5px; margin-bottom: 10px;">
-                    <?php if($exibe['qt_estoque'] > 0) { ?>
-
-                    <button class="btn btn-block btn-success">
-                        <span class="glyphicon glyphicon-info-sinal"> Comprar</span> 
-                    </button>
-
-                    <?php } else { ?>
-
-                        <button class="btn btn-block btn-danger" disabled>
-                            <span class="glyphicon glyphicon-info-sinal"> Indisponível</span> 
-                        </button>
-
-                    <?php } ?>
-                </div>
             </div>
-            <?php } ?>         
         </div>
+    <?php } ?>
     </div>
 
 

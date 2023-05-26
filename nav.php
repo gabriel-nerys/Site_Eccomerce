@@ -28,8 +28,8 @@
                 </ul>
               </li>              
             </ul>
-            <form class="d-flex" role="search" style="margin-left: 15px; margin-top: 3px;">
-              <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search">
+            <form name="frmpesquisa" method="get" action="busca.php" class="d-flex" role="search" style="margin-left: 15px; margin-top: 3px;">
+              <input name="txtbuscar" class="form-control me-2" type="text" placeholder="Pesquisar...">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
             
