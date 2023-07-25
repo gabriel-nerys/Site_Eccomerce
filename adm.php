@@ -28,6 +28,12 @@
     </style>
 
     <?php 
+        session_start();
+
+        if(empty($_SESSION['Status']) || $_SESSION['Status'] != 1){
+            header('location: login.php');
+        }
+
         include 'conexao.php';
         include 'nav.php';
         include 'cabecalho.html';
@@ -40,11 +46,23 @@
                     <form class="p-4 p-md-5 border rounded-3 bg-light" id="formlogin">
                     <h2>Área administrativa</h2>
 
-                    <a href="formusuario.php" class="btn btn-primary" style="width: 100%; margin-top: 10px;" role="button">Incluir produto</a><br>
-                    <a href="formusuario.php" class="btn btn-warning" style="width: 100%; margin-top: 10px;"  role="button">Alterar / Excluir Produto</a><br>
-                    <a href="formusuario.php" class="btn btn-success" style="width: 100%; margin-top: 10px;"  role="button">Vendas</a><br>
-                    <a href="formusuario.php" class="btn btn-danger" style="width: 100%; margin-top: 10px;"  role="button">Sair da àrea administrativa</a><br>
-                       
+                    <a href="formproduto.php"  >
+                    <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 10px;"> Incluir produto
+                    </button></a><br>
+                    
+                    <a href="lista.php"  >
+                    <button type="button" class="btn btn-warning" style="width: 100%; margin-top: 10px;"> Alterar / Excluir Produto
+                    </button>
+                </a><br>
+
+                    <a href="formusuario.php"  >
+                    <button type="button" class="btn btn-success" style="width: 100%; margin-top: 10px;"> Vendas
+                    </button></a><br>
+
+                    <a href="formusuario.php"  >
+                    <button type="button" class="btn btn-danger" style="width: 100%; margin-top: 10px;"> Sair da àrea administrativa
+                    </button></a><br>
+
                     </form>
                 </div>
             </div>

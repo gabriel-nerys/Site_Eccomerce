@@ -13,22 +13,21 @@
 <body>
     
     <?php 
+
+        session_start();
+
         include 'nav.php' ;
         include 'cabecalho.html';
         include 'conexao.php' ;
 
-        if(empty($_GET['txtbuscar'])){
-            echo "<html><script>location.href='index.php'</script></html>";
+        if(empty($_SESSION['Status']) || $_SESSION['Status'] != 1){
+            header('location: login.php');
         }
-
-        $pesquisa = $_GET['txtbuscar'];
 
         // Variavel consulta vai receber variavel $cn que receberá o resultado de uma query
-        $consulta = $cn->query("select * from vw_tenis where nm_tenis like concat ('%','$pesquisa','%') or nm_marca like concat ('%','$pesquisa','%')");
+        $consulta = $cn->query("select * from tbl_tenis;')");
         $exibe = $consulta->fetch(PDO::FETCH_ASSOC);
-        if($consulta->rowCount() == 0){
-            echo "<div class='alert alert-danger'>Nenhum resultado encontrado</div>";
-        }
+
     ?>
 
 
@@ -45,17 +44,17 @@
             </div>
             <div class="col-sm-2" style="padding-top:20px;"><b>Preço: <?php echo $exibe['vl_preco'] ?></b></div>
             <div class="col-sm-2 col-xs-offset-right-1" style="padding-top:20px;">
+            
                 <a href="detalhes.php?cd=<?php echo $exibe['cd_tenis'];?>">
-                <button class="btn btn-outline-secondary" style="width: 100%;">
-                    <span class="glyphicon glyphicon-info-sinal" > Detalhes</span> 
-                </button>
-                </a>
-
-                <a href="carrinho.php?cd=<?php echo $exibe['cd_tenis'];?>">
-                <button class="btn btn-success" style="width: 100%; margin-top: 10px;">
-                    <span class="glyphicon glyphicon-info-sinal" > Comprar</span> 
-                </button>
-                </a>
+                    <button class="btn btn-outline-secondary" style="width: 100%;">
+                        <span class="glyphicon glyphicon-info-sinal" > Excluir</span> 
+                    </button>
+                </a> 
+                <a href="frmalterar.php?id=<?php echo $exibe['cd_tenis'];?>&id2=<?php echo $exibe['cd_categoria'];?>&id3=<?php echo $exibe['cd_marca'];?>">
+                    <button class="btn btn-warning" style="width: 100%; margin-top: 10px;">
+                        <span class="glyphicon glyphicon-info-sinal" > Alterar</span> 
+                    </button>
+                </a>            
             </div>
         </div>
     <?php } ?>

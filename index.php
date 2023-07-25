@@ -29,7 +29,7 @@
         <div class="row">
             <?php while($exibe = $consulta->fetch(PDO::FETCH_ASSOC)){?>
             <div class="col-sm-3">
-                <img src="img/<?php echo $exibe['ds_tenis_img'] ?>.jpeg" class="img-responsive" style="width: 100%;" alt="">
+                <img src="img/<?php echo $exibe['ds_tenis_img']; ?>" class="img-responsive" style="width: 100%;" alt="">
                 <div><h4><?php echo mb_strimwidth($exibe['nm_tenis'],0,25,'...') ?></h4></div>
                 <div><h5>R$ <?php echo number_format($exibe['vl_preco'],2,',','.') ?></h5></div>
 
@@ -43,17 +43,17 @@
 
                 <div class="text-center" style="margin-top: 5px; margin-bottom: 10px;">
                     <?php if($exibe['qt_estoque'] > 0) { ?>
-
-                    <button class="btn btn-block btn-success">
-                        <span class="glyphicon glyphicon-info-sinal"> Comprar</span> 
-                    </button>
-
+                        <a href="carrinho.php?cd=<?php echo $exibe['cd_tenis'];?>">
+                        <button class="btn btn-block btn-success">
+                            <span class="glyphicon glyphicon-info-sinal"> Comprar</span> 
+                        </button>
+                        </a>
                     <?php } else { ?>
-
+                        
                         <button class="btn btn-block btn-danger" disabled>
                             <span class="glyphicon glyphicon-info-sinal"> Indisponível</span> 
                         </button>
-
+                        
                     <?php } ?>
                 </div>
             </div>

@@ -36,7 +36,7 @@
             <div class="col-sm-4 col-sm-offset-1" style="margin-left: 5vh;">
                 <h2>Detalhes do Produto</h2>
 
-                <img src="img/<?php echo $exibe['ds_tenis_img'] ?>.jpeg" class="img-responsive" style="width: 100%;">
+                <img src="img/<?php echo $exibe['ds_tenis_img'] ?>" class="img-responsive" style="width: 100%;">
             </div>
 
             <div class="col-sm-7">
