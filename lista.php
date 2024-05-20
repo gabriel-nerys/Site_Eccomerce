@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    
     <title>TenisWord</title>
 </head>
 <body>
@@ -45,11 +46,12 @@
             <div class="col-sm-2" style="padding-top:20px;"><b>Preço: <?php echo $exibe['vl_preco'] ?></b></div>
             <div class="col-sm-2 col-xs-offset-right-1" style="padding-top:20px;">
             
-                <a href="detalhes.php?cd=<?php echo $exibe['cd_tenis'];?>">
+                <a href="excluir.php?id=<?php echo $exibe['cd_tenis']; ?>">
                     <button class="btn btn-outline-secondary" style="width: 100%;">
-                        <span class="glyphicon glyphicon-info-sinal" > Excluir</span> 
+                        <span class="glyphicon glyphicon-info-sign"></span> Excluir
                     </button>
-                </a> 
+                </a>
+
                 <a href="frmalterar.php?id=<?php echo $exibe['cd_tenis'];?>&id2=<?php echo $exibe['cd_categoria'];?>&id3=<?php echo $exibe['cd_marca'];?>">
                     <button class="btn btn-warning" style="width: 100%; margin-top: 10px;">
                         <span class="glyphicon glyphicon-info-sinal" > Alterar</span> 
@@ -61,7 +63,7 @@
     </div>
 
 
-    <?php include 'rodape.html' ?>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

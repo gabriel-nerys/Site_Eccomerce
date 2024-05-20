@@ -4,3 +4,26 @@
     box-sizing: border-box;
     
 }
+
+html, body{
+    height: 100%;
+}
+
+main {
+    flex: 1;
+}
+
+.fixed-footer {
+    background-color: rgba(0, 0, 0, 0.025);
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.fixed-footer a {
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
+}

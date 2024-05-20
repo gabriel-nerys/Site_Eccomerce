@@ -36,7 +36,7 @@
           </div>
             <ul class="nav nav-pills justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contato</a>
+                    <a class="nav-link" href="carrinho.php">Carrinho</a>
                 </li>
 
                 <?php if(empty($_SESSION['ID'])) { ?>

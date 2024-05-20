@@ -14,7 +14,6 @@
     <?php 
         session_start();
 
-        $total = '100.00';
 
         if(empty($_SESSION['Status']) || $_SESSION['Status'] != 1){
             header('location: login.php');
@@ -36,12 +35,16 @@
                 $_SESSION['carrinho'] = array();
             }
 
-            if(!isset($_SESSION['carrinho']['cd_prod'])){
-                $_SESSION['carrinho']['cd_prod'] = 1;
+            //se o código do produto não estiver na sessão carrinho
+            if(!isset($_SESSION['carrinho'][$cd])){
+                //será criado um vetor com o código do produto e a quantidade
+                $_SESSION['carrinho'][$cd] = 1;
             }else{
-                $_SESSION['carrinho']['cd_prod']+=1;
+                //se o código do produto já estiver na sessão carrinho
+                $_SESSION['carrinho'][$cd]+=1;
             }
 
+            
             include 'mostracarrinho.php';
         }else{
             include 'mostracarrinho.php';
@@ -51,7 +54,8 @@
 
     <div class="container-fluid" style="height: 53vh;">
         <div class="row text-center" style="margin-top: 15px;">
-            <h2>Total: R$ <?php echo number_format($exibe['vl_preco'],2,',','.'); ?></h2>
+            <h2>Total: R$ <?php echo $total;?></h2>
+
         </div>
         <div class="row text-center" style="margin-top: 15px;">
             <a href="index.php"><button class="btn btn-lg btn-primary" style="width: 50%;">Continuar comprando</button></a>
