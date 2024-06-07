@@ -11,17 +11,11 @@ create table tbl_categoria(
     ds_categoria varchar(25) not null
 )default charset utf8;
 
-select cd_categoria, ds_categoria from tbl_categoria where cd_categoria = 1;
-
-select * from tbl_categoria;
-
 
 create table tbl_marca(
 	cd_marca int primary key auto_increment,
     nm_marca varchar(45) not null
 )default charset utf8;
-
-select ds_tenis_img from tbl_tenis where cd_tenis = 1;
 
 create table tbl_tenis(
 	cd_tenis int primary key auto_increment,
@@ -38,19 +32,6 @@ create table tbl_tenis(
     constraint fk_marca foreign key(cd_marca) references tbl_marca(cd_marca)
 )default charset utf8;
 
-SELECT * FROM tbl_usuario;
-
-update tbl_usuario set ds_status = 1 where cd_usuario = 3;
-
-drop table tbl_tenis;
-
-update tbl_tenis
-set ds_tenis_img = 'wavecreation1.jpeg'
-where cd_tenis = 18;
-
-delete from tbl_tenis where cd_tenis = 29;
-
-select * from tbl_tenis;
 -- inserts
 
 insert into tbl_tenis values
@@ -107,12 +88,6 @@ insert into tbl_tenis values
 
 (default, '3', 'Mizuno Wave Creation 24', '9', '40', '999.99', '10', 'O Mizuno Wave é um tênis de corrida conhecido por sua tecnologia inovadora e desempenho excepcional. Com sua entressola Wave, oferece amortecimento responsivo e estabilidade durante a corrida.
 ','wavecreation1','N');
-
-select * from tbl_tenis;
-
-update tbl_tenis
-set qt_estoque = '0'
-where cd_tenis = 8;
 
 insert into tbl_categoria values
 (default,'Nike'),(default,'Adidas'),(default,'Mizuno');

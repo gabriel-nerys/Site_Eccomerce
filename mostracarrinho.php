@@ -19,6 +19,10 @@
 
         $total = null;
         
+        if(!isset($_SESSION['carrinho'])){
+            $_SESSION['carrinho'] = array();
+        }
+
         foreach ($_SESSION['carrinho'] as $cd => $qtd){
             
             $consulta = $cn->query("select * from tbl_tenis where cd_tenis='$cd'");

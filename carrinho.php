@@ -59,7 +59,10 @@
         </div>
         <div class="row text-center" style="margin-top: 15px;">
             <a href="index.php"><button class="btn btn-lg btn-primary" style="width: 50%;">Continuar comprando</button></a>
+            <?php if(count($_SESSION['carrinho']) > 0){ ?>
+
             <a href="finalizarcompra.php"><button class="btn btn-lg btn-success" style="width: 50%; margin-top: 15px;">Finalizar</button></a>
+            <?php } ?>
         </div>
     </div>
 
